@@ -30,6 +30,6 @@ class PostRepo
         $post->posted_at = $postdata->created_time;
 
         // Save!
-        $post->save();
+        return $post->save();
     }
 }

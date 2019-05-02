@@ -6,12 +6,30 @@ use Bulldog\Facebook\Models\Post;
 
 class PostRepo
 {
-    public function save($data)
+    public function save($pageid, $postdata)
     {
         // First check if the post already exists
+        if(Post::where('post_id', $postdata->id)->exists()) {
+            return false;
+        }
 
-        // Check if link or message is set
+        $post = new Post;
+        $post->page_id = $pageid;
+        $post->post_id = $postdata->id;
+
+        // Check if message is set
+        if(isset($postdata->message)) {
+            $post->message = $postdata->message;
+        }
+
+        // Check if link is set
+        if(isset($postdata->link)) {
+            $post->link = $postdata->link;
+        }
+
+        $post->posted_at = $postdata->created_time;
 
         // Save!
+        $post->save();
     }
 }

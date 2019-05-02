@@ -74,17 +74,4 @@ class Api
     {
         return json_decode($this->response->getBody())->data;
     }
-
-    /**
-     * Factory Method.
-     * 
-     * @var string $appid
-     * @var string $secret
-     * 
-     * @return Bulldog\Facebook\Api
-     */
-    public static function build($appid, $secret)
-    {
-        return new Api($appid, $secret);
-    }
 }

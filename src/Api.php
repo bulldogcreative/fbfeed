@@ -37,9 +37,4 @@ class Api
     {
         return json_decode($this->response->getBody())->data;
     }
-
-    public static function build($appid, $secret)
-    {
-        return new Api($appid, $secret);
-    }
 }

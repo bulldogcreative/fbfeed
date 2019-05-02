@@ -8,6 +8,10 @@ class PostRepo
 {
     public function save($pageid, $postdata)
     {
+        if(isset($postdata->story)) {
+            return false;
+        }
+
         // First check if the post already exists
         if(Post::where('post_id', $postdata->id)->exists()) {
             return false;

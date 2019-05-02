@@ -2,5 +2,9 @@
 
 require '../vendor/autoload.php';
 
-$post = new Bulldog\Facebook\Repositories\PostRepo;
-dd($post->get($_SERVER['REQUEST_URI']));
+use Symfony\Component\HttpFoundation\Request;
+use Bulldog\Facebook\Controllers\FeedController;
+
+$controller = new FeedController;
+$response = $controller->index(Request::createFromGlobals());
+$response->send();

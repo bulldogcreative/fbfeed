@@ -1,5 +1,5 @@
 {
-    "name": "FB Page Feed Proxy",
+    "name": "bulldog/fbfeed",
     "description": "Saving FB Page feed data to a database so we can then serve it up as JSON to our reactjs component.",
     "license": "MIT",
     "keywords": [

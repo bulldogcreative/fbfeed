@@ -36,4 +36,9 @@ class PostRepo
         // Save!
         return $post->save();
     }
+
+    public function get($pageid)
+    {
+        return Post::where('page_id', str_replace("/", "", $pageid))->get();
+    }
 }

@@ -11,7 +11,10 @@ class Controller
         return $response = new Response(
             json_encode($data),
             Response::HTTP_OK,
-            ['content-type' => 'application/json']
+            [
+                'content-type' => 'application/json',
+                'Access-Control-Allow-Origin' => '*'
+            ]
         );
     }
 }
